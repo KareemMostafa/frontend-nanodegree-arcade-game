@@ -44,6 +44,7 @@ class Player {
       // You should multiply any movement by the dt parameter
       // which will ensure the game runs at the same speed for
       // all computers.
+    
   }
 
   // Draw the enemy on the screen, required method for game
@@ -52,7 +53,7 @@ class Player {
   }
 
   handleInput(d) {
-
+    this.key = d;
   }
 }
 // Now instantiate your objects.
