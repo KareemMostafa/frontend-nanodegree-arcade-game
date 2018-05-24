@@ -45,6 +45,7 @@ class Player {
       // You should multiply any movement by the dt parameter
       // which will ensure the game runs at the same speed for
       // all computers.
+      let resetPlayer = this;
       if(this.key === 'up' && this.y > 0) {
         this.y = this.y - this.speed;
       }
@@ -57,7 +58,18 @@ class Player {
       if(this.key === 'left' && this.x > 0) {
         this.x = this.x - this.speed;
       }
+
       this.key = null;
+
+      if(this.y < 0 ) {
+        this.reset();
+      }
+
+      allEnemies.forEach(function(enemy) {
+        if(resetPlayer.x >= enemy.x - 25 && resetPlayer.x <= enemy.x + 25 && (resetPlayer.y >= enemy.y - 25 && resetPlayer.y <= enemy.y + 25)) {
+          resetPlayer.reset();
+        }
+    });
   }
 
   // Draw the enemy on the screen, required method for game
