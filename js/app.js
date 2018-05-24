@@ -60,10 +60,11 @@ class Player {
 // Place the player object in a variable called player
 
 let allEnemies = [];
-let enemy1 = new Enemy ();
-
-allEnemies.push(enemy1);
-
+(function addEnemies(){
+  allEnemies.push(new Enemy(0,55));
+  allEnemies.push(new Enemy(0,125));
+  allEnemies.push(new Enemy(0,225));
+}());
 let player = new Player ();
 
 // This listens for key presses and sends the keys to your
