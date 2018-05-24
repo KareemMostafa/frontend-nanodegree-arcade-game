@@ -12,7 +12,7 @@ class Enemy {
 
     update(dt) {
 
-        if (this.x < 505) {
+        if (this.x < 505) {// in case of x is smaller than canvas width (505)
             this.x = this.x + this.speed * dt;
         } else {
             this.x = -2;
@@ -34,25 +34,32 @@ class Player {
     }
     update(dt) {
 
+        //player Position
         let resetPlayer = this;
+        //move the player up when up key is pressed
         if (this.key === 'up' && this.y > 0) {
             this.y = this.y - this.speed;
         }
+        //move the player down when down key is pressed
         if (this.key === 'down' && this.y < 400) {
             this.y = this.y + this.speed;
         }
+        //move the player right when right key is pressed
         if (this.key === 'right' && this.x < 400) {
             this.x = this.x + this.speed;
         }
+        //move the player left when left key is pressed
         if (this.key === 'left' && this.x > 0) {
             this.x = this.x - this.speed;
         }
 
+        //make the player move only 1 block
         this.key = null;
 
+        //when player reach water
         if (this.y < 0) {
-            this.reset();
-            swal({
+            this.reset();//reset the game
+            swal({//show the end message
                 title: 'Congratulations',
                 animation: false,
                 customClass: 'animated bounceInDown',
@@ -65,7 +72,7 @@ class Player {
         }
 
         allEnemies.forEach(function(enemy) {
-            if (resetPlayer.x >= enemy.x - 25 && resetPlayer.x <= enemy.x + 25 && (resetPlayer.y >= enemy.y - 25 && resetPlayer.y <= enemy.y + 25)) {
+            if (resetPlayer.x >= enemy.x - 25 && resetPlayer.x <= enemy.x + 25 && (resetPlayer.y >= enemy.y - 25 && resetPlayer.y <= enemy.y + 25)) {//when player hit the enemy
                 resetPlayer.reset();
             }
         });
@@ -76,7 +83,7 @@ class Player {
     }
 
     handleInput(d) {
-        this.key = d;
+        this.key = d;//safe the keyboard key that is clicked
     }
 
     reset() {
