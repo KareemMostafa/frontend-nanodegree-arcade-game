@@ -63,13 +63,23 @@ class Player {
 
       if(this.y < 0 ) {
         this.reset();
-      }
+        swal({
+          title: 'Congratulations',
+          animation: false,
+          customClass: 'animated bounceInDown',
+          confirmButtonText: 'Play again'
+        }).then((result) => {
+          if (result.value) {
+            window.location.reload();
+          }
+        });
+    }
 
       allEnemies.forEach(function(enemy) {
         if(resetPlayer.x >= enemy.x - 25 && resetPlayer.x <= enemy.x + 25 && (resetPlayer.y >= enemy.y - 25 && resetPlayer.y <= enemy.y + 25)) {
           resetPlayer.reset();
         }
-    });
+      });
   }
 
   // Draw the enemy on the screen, required method for game
