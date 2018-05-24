@@ -68,6 +68,12 @@ class Player {
   handleInput(d) {
     this.key = d;
   }
+
+  reset () {
+    this.x = 200;
+    this.y = 320;
+  }
+
 }
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
