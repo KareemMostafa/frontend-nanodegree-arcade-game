@@ -45,11 +45,11 @@ class Player {
             this.y = this.y + this.speed;
         }
         //move the player right when right key is pressed
-        if (this.key === 'right' && this.x < 400) {
+        if (this.key === 'right' && this.x < 380) {
             this.x = this.x + this.speed;
         }
         //move the player left when left key is pressed
-        if (this.key === 'left' && this.x > 0) {
+        if (this.key === 'left' && this.x > 20) {
             this.x = this.x - this.speed;
         }
 
