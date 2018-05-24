@@ -1,6 +1,5 @@
 frontend-nanodegree-arcade-game (frogger)
 ===============================
-<<<<<<< HEAD
 # Installation
 1. Clone this project
 2. Open it in your browser : https://kareemmostafa.github.io/frontend-nanodegree-arcade-game/
