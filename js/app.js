@@ -38,13 +38,26 @@ class Player {
   constructor() {
     this.x = 200;
     this.y = 320;
+    this.speed = 90;
     this.sprite = 'images/char-boy.png';
   }
   update(dt) {
       // You should multiply any movement by the dt parameter
       // which will ensure the game runs at the same speed for
       // all computers.
-    
+      if(this.key === 'up' && this.y > 0) {
+        this.y = this.y - this.speed;
+      }
+      if(this.key === 'down' && this.y < 400) {
+        this.y = this.y + this.speed;
+      }
+      if(this.key === 'right' && this.x < 400) {
+        this.x = this.x + this.speed;
+      }
+      if(this.key === 'left' && this.x > 0) {
+        this.x = this.x - this.speed;
+      }
+      this.key = null;
   }
 
   // Draw the enemy on the screen, required method for game
