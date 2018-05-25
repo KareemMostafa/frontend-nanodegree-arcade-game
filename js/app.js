@@ -72,7 +72,10 @@ class Player {
         }
 
         allEnemies.forEach(function(enemy) {
-            if (resetPlayer.x >= enemy.x - 25 && resetPlayer.x <= enemy.x + 25 && (resetPlayer.y >= enemy.y - 25 && resetPlayer.y <= enemy.y + 25)) {//when player hit the enemy
+          if (resetPlayer.x < enemy.x + 60 &&
+              resetPlayer.x + 37 > enemy.x &&
+              resetPlayer.y < enemy.y + 25 &&
+              30 + resetPlayer.y > enemy.y) {
                 resetPlayer.reset();
             }
         });
